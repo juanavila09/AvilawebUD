@@ -56,3 +56,6 @@ El diagrama de clases del módulo CDT se encuentra en `docs/diagrama-clases.png`
 Tecnología en Sistematización de Datos  
 Universidad Distrital Francisco José de Caldas  
 2026
+  
+---  
+Ultima actualizacion: Mayo 2026 
