@@ -1,0 +1,282 @@
+/* ===== Reset básico ===== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    background: linear-gradient(135deg, #ffe0ec 0%, #ffc1d9 50%, #ffd6e8 100%);
+    margin: 0;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+    color: #5a2a4a;
+}
+
+/* ===== Contenedor principal ===== */
+.contenedor {
+    max-width: 640px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 24px;
+    box-shadow: 0 8px 30px rgba(255, 105, 180, 0.25);
+    border: 3px solid #ffb3d1;
+    position: relative;
+}
+
+.contenedor::before {
+    content: "♡";
+    position: absolute;
+    top: -18px;
+    right: 30px;
+    font-size: 2.5rem;
+    color: #ff69b4;
+    background: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #ffb3d1;
+}
+
+/* ===== Tipografía ===== */
+h1 {
+    color: #d63384;
+    margin-top: 0;
+    font-size: 2rem;
+    text-align: center;
+    text-shadow: 2px 2px 0 #ffe0ec;
+}
+
+h2 {
+    color: #d63384;
+    border-bottom: 3px dashed #ff69b4;
+    padding-bottom: 0.6rem;
+    margin-top: 0;
+    font-size: 1.7rem;
+    text-align: center;
+    text-shadow: 1px 1px 0 #ffe0ec;
+}
+
+h3 {
+    color: #c2185b;
+    font-size: 1.3rem;
+    margin-top: 0;
+}
+
+h4 {
+    color: #a64d79;
+    font-weight: normal;
+}
+
+p {
+    text-align: center;
+    color: #a64d79;
+}
+
+/* ===== Formulario ===== */
+.campo {
+    margin-bottom: 1.3rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #c2185b;
+    font-size: 1rem;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #ffb3d1;
+    border-radius: 16px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    background: #fff5f9;
+    color: #5a2a4a;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+    outline: none;
+    border-color: #ff69b4;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(255, 105, 180, 0.2);
+}
+
+input[type="submit"],
+button {
+    background: linear-gradient(135deg, #ff69b4 0%, #d63384 100%);
+    color: white;
+    border: none;
+    padding: 0.85rem 2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.05rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.4);
+    letter-spacing: 0.5px;
+}
+
+input[type="submit"]:hover,
+button:hover {
+    background: linear-gradient(135deg, #d63384 0%, #ad1457 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 105, 180, 0.5);
+}
+
+input[type="submit"]:active,
+button:active {
+    transform: translateY(0);
+}
+
+/* ===== Mensajes de error ===== */
+.error,
+.mensaje-error {
+    color: #d63384;
+    font-size: 0.85rem;
+    display: block;
+    margin-top: 0.4rem;
+    background: #fff0f5;
+    padding: 0.4rem 0.7rem;
+    border-radius: 10px;
+    border-left: 3px solid #ff69b4;
+    font-style: italic;
+}
+
+/* ===== Bloque de resultados ===== */
+.resultado {
+    margin-top: 2rem;
+    padding: 1.75rem;
+    background: linear-gradient(135deg, #fff0f5 0%, #ffe0ec 100%);
+    border: 2px dashed #ff69b4;
+    border-radius: 20px;
+    position: relative;
+}
+
+.resultado::before {
+    content: "✿";
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    font-size: 1.8rem;
+    color: #ff69b4;
+    background: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ffb3d1;
+}
+
+.resultado-fila {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.7rem 0;
+    border-bottom: 1px dashed #ffb3d1;
+}
+
+.resultado-fila:last-child {
+    border-bottom: none;
+    font-weight: bold;
+    font-size: 1.15rem;
+    color: #d63384;
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+    border-top: 2px solid #ff69b4;
+}
+
+.resultado-label {
+    color: #a64d79;
+}
+
+.resultado-valor {
+    font-weight: bold;
+    color: #5a2a4a;
+}
+
+/* ===== Footer ===== */
+footer {
+    margin-top: 2.5rem;
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 2px dashed #ffb3d1;
+}
+
+footer a {
+    color: #d63384;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    background: #fff0f5;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    background: #ff69b4;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* ===== Lista de ejercicios (index) ===== */
+ul.menu {
+    list-style: none;
+    padding: 0;
+}
+
+ul.menu li {
+    margin: 1rem 0;
+}
+
+ul.menu li a {
+    display: block;
+    padding: 1.1rem 1.4rem;
+    background: linear-gradient(135deg, #fff0f5 0%, #ffe0ec 100%);
+    border: 2px solid #ffb3d1;
+    border-radius: 18px;
+    color: #d63384;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+ul.menu li a::before {
+    content: "♡ ";
+}
+
+ul.menu li a:hover {
+    background: linear-gradient(135deg, #ff69b4 0%, #d63384 100%);
+    color: white;
+    border-color: #d63384;
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(255, 105, 180, 0.4);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+    .contenedor {
+        padding: 1.75rem;
+    }
+    h2 {
+        font-size: 1.4rem;
+    }
+    h1 {
+        font-size: 1.6rem;
+    }
+}

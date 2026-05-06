@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Simulador CDT</title>
+	<h:outputStylesheet library="css" name="estilos.css" />
+</h:head>
+
+<h:body>
+	<div class="contenedor">
+		<h2>Simulador de CDT</h2>
+
+		<h:form id="formCDT">
+
+			<div class="campo">
+				<h:outputLabel for="inversion" value="Inversión (COP):" />
+				<h:inputText id="inversion" value="#{cdt.inversion}"
+					required="true"
+					requiredMessage="La inversión es obligatoria"
+					converterMessage="Ingrese un valor numérico válido"
+					validatorMessage="La inversión debe estar entre $1.000 y $1.000.000.000">
+					<f:convertNumber maxFractionDigits="2" />
+					<f:validateDoubleRange minimum="1000" maximum="1000000000" />
+				</h:inputText>
+				<h:message for="inversion" styleClass="mensaje-error" />
+			</div>
+
+			<div class="campo">
+				<h:outputLabel for="interes" value="Interés E.A. (decimal, ej: 0.12 = 12%):" />
+				<h:inputText id="interes" value="#{cdt.interes}"
+					required="true"
+					requiredMessage="El interés es obligatorio"
+					converterMessage="Ingrese un valor numérico válido"
+					validatorMessage="El interés debe estar entre 0.01 (1%) y 0.50 (50%)">
+					<f:convertNumber maxFractionDigits="4" />
+					<f:validateDoubleRange minimum="0.01" maximum="0.50" />
+				</h:inputText>
+				<h:message for="interes" styleClass="mensaje-error" />
+			</div>
+
+			<div class="campo">
+				<h:outputLabel for="plazo" value="Plazo (días):" />
+				<h:inputText id="plazo" value="#{cdt.plazo}"
+					required="true"
+					requiredMessage="El plazo es obligatorio"
+					converterMessage="Ingrese un valor numérico válido"
+					validatorMessage="El plazo debe estar entre 30 y 1800 días (5 años)">
+					<f:convertNumber integerOnly="true" />
+					<f:validateDoubleRange minimum="30" maximum="1800" />
+				</h:inputText>
+				<h:message for="plazo" styleClass="mensaje-error" />
+			</div>
+
+			<h:commandButton value="Calcular Ganancia" action="#{cdt.calcular}">
+				<f:ajax execute="@form" render="@form" />
+			</h:commandButton>
+
+			<h:panelGroup rendered="#{cdt.ganancia gt 0}" layout="block" styleClass="resultado">
+				<h3>Resultados del CDT</h3>
+
+				<div class="resultado-fila">
+					<span class="resultado-label">Ganancia bruta:</span>
+					<span class="resultado-valor">
+						<h:outputText value="#{cdt.ganancia}">
+							<f:convertNumber type="currency" currencySymbol="$" maxFractionDigits="2" groupingUsed="true" />
+						</h:outputText>
+					</span>
+				</div>
+
+				<div class="resultado-fila">
+					<span class="resultado-label">Impuesto (4%):</span>
+					<span class="resultado-valor">
+						<h:outputText value="#{cdt.impuesto}">
+							<f:convertNumber type="currency" currencySymbol="$" maxFractionDigits="2" groupingUsed="true" />
+						</h:outputText>
+					</span>
+				</div>
+
+				<div class="resultado-fila">
+					<span class="resultado-label">Ganancia neta:</span>
+					<span class="resultado-valor">
+						<h:outputText value="#{cdt.gananciaNeta}">
+							<f:convertNumber type="currency" currencySymbol="$" maxFractionDigits="2" groupingUsed="true" />
+						</h:outputText>
+					</span>
+				</div>
+
+				<div class="resultado-fila">
+					<span class="resultado-label">Valor final al vencimiento:</span>
+					<span class="resultado-valor">
+						<h:outputText value="#{cdt.valorFinal}">
+							<f:convertNumber type="currency" currencySymbol="$" maxFractionDigits="2" groupingUsed="true" />
+						</h:outputText>
+					</span>
+				</div>
+			</h:panelGroup>
+
+		</h:form>
+
+		<footer>
+			<a href="index.xhtml">&#171; Volver al inicio</a>
+			<h4>Juana &#193;vila &#8212; Universidad Distrital Francisco Jos&#233; de Caldas &#8212; 2026</h4>
+		</footer>
+	</div>
+</h:body>
+</html>
