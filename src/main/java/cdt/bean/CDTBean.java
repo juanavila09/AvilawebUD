@@ -98,3 +98,6 @@ public class CDTBean implements Serializable {
 		return modelo.getValorFinal();
 	}
 }
+  
+// Patron MVC - Capa Controlador  
+// Esta clase delega la logica de negocio a CalculadoraCDT 
